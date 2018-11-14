@@ -1,10 +1,18 @@
 package W9;
 
+import java.util.Arrays;
+import java.util.List;
+
 //	Introducing lambdas
 
 @FunctionalInterface
 interface Operation {
 	boolean isMin(int a, int b);	//	declare function signature using interface
+}
+
+@FunctionalInterface
+interface ReferenceToInstanceObj {
+	void display();
 }
 
 public class main {
@@ -26,6 +34,27 @@ public class main {
 		
 		System.out.println(bar(1, hw));
 		System.out.println(foo(5, 4, (x, y) -> { return x > y; }));	//	isGreater
+	
+		List<String> someBingoNumbers = Arrays.asList(
+				"N40", "N36",
+				"B12", "B6",
+				"G53", "G49", "G60","G50",
+				"I26", "I17", "I29",
+				"O71");
+		
+		//	working with streams
+		someBingoNumbers
+		.stream()
+		.map(s -> s.toUpperCase())
+		.filter(s -> s.startsWith("G"))
+		.sorted()
+		.forEach(s -> System.out.print(s + ", "));
+		System.out.println();
+		
+		//	Method reference to instance object
+		main myObj = new main();	//	'main' refers to self-class
+		ReferenceToInstanceObj ref = myObj::display;
+		ref.display();
 		
 	}
 
@@ -37,5 +66,9 @@ public class main {
 	//	Setting Functional interface as parameters
 	public static boolean foo(int a, int b, Operation o) {
 		return o.isMin(a, b);
+	}
+	
+	public void display() {
+		System.out.println("Hello");
 	}
 }
