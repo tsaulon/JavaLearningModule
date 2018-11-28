@@ -16,4 +16,17 @@ public class Table {
 		}
 		System.out.println(" ");
 	}
+	
+	synchronized static public void printStaticTable(int n) {
+		for(int i = 0; i < 10; i++) {
+			try {
+				Thread.sleep(150);
+			} catch(Exception e) {
+				System.out.println(e);
+			}
+			
+			System.out.print(i * n + " ");
+		}
+		System.out.println(" ");
+	}
 }
