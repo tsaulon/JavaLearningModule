@@ -3,6 +3,8 @@ package W9;
 import java.util.Arrays;
 import java.util.List;
 
+import javafx.application.Application;
+
 //	Introducing lambdas
 
 @FunctionalInterface
@@ -55,7 +57,6 @@ public class main {
 		main myObj = new main();	//	'main' refers to self-class
 		ReferenceToInstanceObj ref = myObj::display;
 		ref.display();
-		
 	}
 
 	
