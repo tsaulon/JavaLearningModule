@@ -1,5 +1,7 @@
 package W10;
 
+//	Calling run function will only call the method
+//	Note: Does not instantiate multi-threading feature
 public class TestCallRun2 extends Thread{
 
 	public void run() {
